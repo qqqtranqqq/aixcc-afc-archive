@@ -1,3 +1,13 @@
+# Run
+Might need to install corpus.py dependencies requests, and tqdm
+```bash
+./external/corpus/python3 corpus.py 
+./external/infer/build.sh
+cd external/infer/llvm-cov/
+docker build -t llvm-cov .
+cd ../..
+docker build -t ghcr.io/theori-io/crs:latest .
+```
 # Theori Finals Release
 This repository contains a snapshot of the finals release of Theori's CRS.
 This was written from August 2024 - June 2025. This contains the entirety of the code
