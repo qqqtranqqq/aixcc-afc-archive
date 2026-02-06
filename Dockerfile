@@ -28,11 +28,11 @@ RUN mkdir -p /crs /crs/external/infer /crs/external/llvm-cov
 WORKDIR /crs
 
 # fetch infer
-RUN curl -L https://de6543ab956de244.blob.core.windows.net/files/infer_2232d6b.tar.xz | tar -Jxf - -C external/infer/
-RUN wget https://de6543ab956de244.blob.core.windows.net/files/llvm-cov -O external/llvm-cov/llvm-cov && chmod +x external/llvm-cov/llvm-cov
+#RUN curl -L https://de6543ab956de244.blob.core.windows.net/files/infer_2232d6b.tar.xz | tar -Jxf - -C external/infer/
+#RUN wget https://de6543ab956de244.blob.core.windows.net/files/llvm-cov -O external/llvm-cov/llvm-cov && chmod +x external/llvm-cov/llvm-cov
 
 # fetch corpus sample
-RUN azcopy copy https://de6543ab956de244.blob.core.windows.net/files/sample.tar.xz /crs/external/corpus/sample.tar.xz
+#RUN azcopy copy https://de6543ab956de244.blob.core.windows.net/files/sample.tar.xz /crs/external/corpus/sample.tar.xz
 
 # install kaitai
 RUN curl -LO https://github.com/kaitai-io/kaitai_struct_compiler/releases/download/0.10/kaitai-struct-compiler_0.10_all.deb
@@ -40,6 +40,7 @@ RUN apt-get install ./kaitai-struct-compiler_0.10_all.deb
 
 # Build external dependencies and utils
 COPY ./utils ./utils
+RUN df -h
 COPY ./external ./external
 COPY build.sh ./
 RUN ./build.sh
