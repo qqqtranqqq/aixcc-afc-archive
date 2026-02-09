@@ -2,7 +2,9 @@
 Might need to install corpus.py dependencies.  requests, and tqdm.  
 You also might need to build in a enviroment with 300 to 400 GB of space.
 ```bash
-./external/corpus/python3 corpus.py 
+cd external/corpus
+python3 corpus.py
+cd ../..
 ./external/infer/build.sh
 cd external/infer/llvm-cov/
 docker build -t llvm-cov .
